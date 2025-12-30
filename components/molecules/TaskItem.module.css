@@ -1,0 +1,146 @@
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 0.75rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.item:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: transparent;
+    transition: background-color 0.2s;
+}
+
+.item:hover::before {
+    background-color: var(--primary);
+}
+
+.completed {
+    background-color: var(--surface-hover);
+    border-color: transparent;
+}
+
+.completed::before {
+    background-color: var(--success);
+}
+
+.left {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex: 1;
+}
+
+.statusBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.statusBtn:hover:not(:disabled) {
+    color: var(--success);
+    transform: scale(1.1);
+}
+
+.checkIcon {
+    color: var(--success);
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+    transition: color 0.2s;
+}
+
+.completed .title {
+    text-decoration: line-through;
+    color: var(--text-tertiary);
+}
+
+.description {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.dueDate {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+    background-color: var(--secondary-light);
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+    width: fit-content;
+}
+
+.overdue {
+    color: var(--danger);
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.flagIcon {
+    color: inherit;
+}
+
+.deleteBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-tertiary);
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.item:hover .deleteBtn {
+    opacity: 1;
+}
+
+.deleteBtn:hover {
+    color: var(--danger);
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+@media (max-width: 640px) {
+    .item {
+        padding: 0.75rem;
+    }
+}
