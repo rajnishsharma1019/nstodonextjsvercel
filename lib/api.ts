@@ -1,6 +1,6 @@
 import { APIError } from './errors';
 
-const API_URL = 'http://localhost:8000/api/v1';
+const API_URL = 'http://nsi-nstodo.netsol.in/api/v1';
 
 // Generic API client wrapper
 export async function api<T>(
